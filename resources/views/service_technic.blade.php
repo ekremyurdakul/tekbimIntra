@@ -87,7 +87,9 @@
                         <p>Lütfen Durum Seçiniz</p>
                         <select name="statusId">
                             @foreach($statuses as $status)
+                                @if($status->name != "Teslim Edildi")
                                 <option value="@php echo $status->id @endphp">@php echo $status->name @endphp</option>
+                                @endif
                             @endforeach
                         </select>
 

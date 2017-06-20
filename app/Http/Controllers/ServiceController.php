@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\OperationType;
+use App\Product;
 use App\ServiceProduct;
 use App\ServiceProductDetail;
 use App\ServiceStatus;
@@ -162,6 +163,22 @@ class ServiceController extends Controller
         $product = ServiceProduct::find($id);
 
         return view('service_technic_product')->with(['product'=>$product]);
+    }
+    
+    public function handover(){
+        $finishedProducts = ServiceStatus::where('name','Bitti')->get()->first()->products()->get();
+
+        return view('service_handover')->with([
+            'finishedProducts'=>$finishedProducts,
+        ]);
+    }
+
+    public function handoverProduct($id){
+        $product = Product::find($id);
+        $product->service_status_id = ServiceStatus::where('name','Teslim Edildi')->get()->first();
+
+        $product->save();
+        return back()->with('status', 'Başarıyla Teslim Edilmiştir');
     }
 
 }

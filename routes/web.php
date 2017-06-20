@@ -44,6 +44,8 @@ Route::post('/employee/aedit', 'EmployeeController@edit');
 Route::get('/service', 'ServiceController@index');
 Route::get('/service/accept', 'ServiceController@accept');
 Route::get('/service/current', 'ServiceController@current');
+Route::get('/service/handover', 'ServiceController@handover');
+Route::get('/service/handover{i}', 'ServiceController@handoverProduct');
 Route::get('/service/aedit/technic', 'ServiceController@technic');
 Route::get('/service/aedit/technic/serialneed/{id}', 'ServiceController@snoNeeded');
 Route::get('/service/aedit/technic/product/{id}', 'ServiceController@product');

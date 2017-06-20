@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
         \App\ServiceStatus::create(['name'=>'Tamir']);
         \App\ServiceStatus::create(['name'=>'TC']);
         \App\ServiceStatus::create(['name'=>'Bitti']);
+        \App\ServiceStatus::create(['name'=>'Teslim Edildi']);
 
         \App\User::create([
             'name' => 'Ekrem',
